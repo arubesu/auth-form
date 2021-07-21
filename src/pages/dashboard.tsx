@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react"
-import Router from 'next/router';
 import { AuthContext } from "../contexts/AuthContext"
 import { setupAPIClient } from "../services/api";
 import { api } from "../services/apiClient";
 import { withSSRAuth } from "../utils/withSSRAuth"
 import { useCan } from "../hooks/useCan";
+import { Can } from "../components/Can";
 
 export default function Dashboard() {
   const { user, isAuthenticated } = useContext(AuthContext)
@@ -21,7 +21,9 @@ export default function Dashboard() {
     <>
       <h1>Dashboard: {user?.email}</h1>
 
-      {userCanSeeMetrics && <div>Métricas</div>}
+      <Can permissions={['metrics.list']}>
+        <div>Métricas</div>
+      </Can>
     </>
   )
 }
