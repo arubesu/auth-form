@@ -1,4 +1,4 @@
-import { AuthTokenError } from './../src/services/errors/AuthTokenError';
+import { AuthTokenError } from '../services/errors/AuthTokenError';
 import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import { destroyCookie, parseCookies } from "nookies";
 
